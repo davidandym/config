@@ -13,6 +13,9 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme zenburn
 
+" allow jsx in .js files
+let g:jsx_ext_required = 0
+
 " advanced python syntax highlight
 let python_highlight_all = 1
 
