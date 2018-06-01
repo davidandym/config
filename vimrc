@@ -100,6 +100,9 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " youcompleteme helper with closing window
 let g:ycm_autoclose_preview_window_after_completion=1
 
+" allow jsx in .js files
+let g:jsx_ext_required = 0
+
 " advanced python syntax highlight
 let python_highlight_all = 1
 syntax on 
