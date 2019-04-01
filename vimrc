@@ -17,7 +17,7 @@ Plugin 'tmhedberg/SimpylFold'
 " Better Python Indentation
 Plugin 'vim-scripts/indentpython.vim'
 " Autocomplete
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 " Syntax Check
 Plugin 'w0rp/ale'
 " PEP 8
@@ -30,6 +30,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'altercation/vim-colors-solarized'
 " Note-taking
 Plugin 'vimwiki/vimwiki'
+" latex editing
+Plugin 'lervag/vimtex'
 
 
 " add all your plugins here (note older versions of Vundle
