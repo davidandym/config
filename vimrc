@@ -18,6 +18,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 " Autocomplete
 " Bundle 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
 " Syntax Check
 Plugin 'w0rp/ale'
 " PEP 8
@@ -32,7 +33,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'vimwiki/vimwiki'
 " latex editing
 Plugin 'lervag/vimtex'
-
+" airline
+Plugin 'vim-airline/vim-airline'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -100,6 +102,7 @@ call togglebg#map("<F5>")
 " MISC 
 " python encoding (for most)
 set encoding=utf-8
+set cc=80
 
 " python - flag whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
