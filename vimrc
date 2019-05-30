@@ -3,48 +3,61 @@
 set nocompatible              " required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
+call plug#begin('~/.vim/bundle')
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
 " Better Code Folding
-Plugin 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 " Better Python Indentation
-Plugin 'vim-scripts/indentpython.vim'
+Plug 'vim-scripts/indentpython.vim'
 " Autocomplete
 " Bundle 'Valloric/YouCompleteMe'
-Plugin 'davidhalter/jedi-vim'
-" Syntax Check
-Plugin 'w0rp/ale'
+Plug 'davidhalter/jedi-vim'
+" Syntax Check, don't load until first toggle
+" Plug 'w0rp/ale', { 'on':  'ALEToggle' }
 " PEP 8
-Plugin 'nvie/vim-flake8'
+" Plug 'nvie/vim-flake8'
+Plug 'vim-syntastic/syntastic'
 " nerdtree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Ctrl-P Searching
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 " Colorscheme
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 " Note-taking
-Plugin 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 " latex editing
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex'
 " airline
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" A Vim Plugin for Lively Previewing LaTeX PDF Output
+Plug 'xuhdev/vim-latex-live-preview'
+call plug#end() 
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
-" ...
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
+
+
+" -------------------------------------------------------------
+"  Syntastic Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0 
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_mode_map = {"mode": "passive"}
+
+map <leader>l :SyntasticCheck<CR>
+map <leader>k :SyntasticReset<CR>
+
+" -------------------------------------------------------------
+"  Latex Preview Settings
+let g:livepreview_previewer = 'open -a Skim'
 
 " -------------------------------------------------------------
 "  FOLDING
@@ -52,6 +65,10 @@ filetype plugin indent on    " required
 set foldmethod=indent
 set foldlevel=99
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='angr'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
 
 " -------------------------------------------------------------
 " TABS
@@ -79,11 +96,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" buffer switch
+nnoremap <leader>[ :bp<CR>
+nnoremap <leader>] :bn<CR>
+
 " Enable folding with the spacebar
 nnoremap <space> za
 
-" shotrcut for youcompleteme goto
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" shotrcut for toggle ALE
 
 " toggle nerdtree
 map <C-n> :NERDTreeToggle<CR>
