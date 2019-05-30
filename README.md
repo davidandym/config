@@ -6,11 +6,11 @@ To use, I would just clone this whole directory into ~/.vim folder `git clone ht
 and create a new ~/.vimrc that only contains "runtime vimrc".
 
 ### Plugins
-I use vundle: `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+I use plug: `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+
+https://github.com/junegunn/vim-plug
 
 Then start up vim, and run `:PluginInstall` to install the rest of the plugins into your bundle folder.
-
-I commented out YCM, since it's really finicky sometimes with your python / vim version (it's kinda heavy). Uncomment it if you want it.
 
 ## tmux
 

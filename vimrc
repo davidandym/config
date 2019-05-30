@@ -5,7 +5,7 @@ filetype off                  " required
 
 call plug#begin('~/.vim/bundle')
 " let Vundle manage Vundle, required
-Plug 'gmarik/Vundle.vim'
+" Plug 'gmarik/Vundle.vim'
 " Better Code Folding
 Plug 'tmhedberg/SimpylFold'
 " Better Python Indentation
