@@ -32,12 +32,28 @@ Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
-Plug 'xuhdev/vim-latex-live-preview'
+" Plug 'xuhdev/vim-latex-live-preview'
+Plug 'sirver/ultisnips'
+
 call plug#end() 
 
 filetype plugin indent on    " required
 
 
+" -------------------------------------------------------------
+"  Snippets Settings
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsEditSplit="vertical"
+
+" -------------------------------------------------------------
+"  VimTex Settings
+let g:tex_flavor='latex'
+let g:vimtex_view_method='skim'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " -------------------------------------------------------------
 "  Syntastic Settings
@@ -57,7 +73,7 @@ map <leader>k :SyntasticReset<CR>
 
 " -------------------------------------------------------------
 "  Latex Preview Settings
-let g:livepreview_previewer = 'open -a Skim'
+" let g:livepreview_previewer = 'open -a Skim'
 
 " -------------------------------------------------------------
 "  FOLDING
